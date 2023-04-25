@@ -1,0 +1,63 @@
+---
+title: "Análisis de uso de bicicletas compartidas"
+author: "Jairo Vera"
+date: "2023-04-25"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Introducción
+
+Este informe presenta un análisis detallado de los patrones de uso de un sistema de bicicletas compartidas por tipo de usuario (miembros y usuarios casuales). Se exploran las diferencias en el uso por día de la semana y hora del día, y se entrena un modelo de regresión logística con regularización Ridge para predecir el tipo de usuario en función de la duración del viaje y el día de la semana.
+
+## Metodología
+
+Se han utilizado los siguientes pasos en el análisis:
+
+1.  Cargar y combinar archivos de datos en un único conjunto de datos.
+2.  Preparar y transformar los datos para facilitar el análisis.
+3.  Generar gráficos de uso por día de la semana y hora del día.
+4.  Entrenar y evaluar un modelo de regresión logística con regularización Ridge para predecir el tipo de usuario.
+
+## Resultados
+
+### Análisis exploratorio y descriptivo
+
+El primer paso en nuestro análisis es explorar los datos y comprender las diferencias en el uso de las bicicletas compartidas por parte de los miembros y usuarios casuales.
+
+### Uso por tipo de usuario y día de la semana
+
+![Uso por tipo de usuario y día de la semana](usage_by_day_plot.png)
+
+El gráfico muestra que los miembros utilizan el sistema de manera más consistente a lo largo de la semana, mientras que los usuarios casuales tienen un uso más pronunciado los fines de semana.
+
+### Uso por tipo de usuario y hora del día
+
+![Uso por tipo de usuario y hora del día](usage_by_hour_plot.png)
+
+El gráfico revela que el uso de los miembros es más frecuente durante las horas pico de la mañana y la tarde, mientras que los usuarios casuales utilizan el sistema de manera más uniforme a lo largo del día, con un pico en la tarde.
+
+### Modelado predictivo 
+Ahora que hemos explorado los datos, utilizaremos diferentes técnicas de modelado predictivo para predecir si un viaje fue realizado por un miembro o un usuario casual.
+
+### Preparación de datos 
+Antes de construir nuestros modelos, debemos dividir nuestros datos en conjuntos de entrenamiento y prueba y crear una función que realice la regularización.
+
+### Modelo de regresión logística con regularización Ridge
+
+Se entrenó un modelo de regresión logística con regularización Ridge utilizando diferentes valores de lambda. El mejor valor de lambda encontrado es 0.001, que resulta en una precisión del modelo de aproximadamente 63.74%. La matriz de confusión y las métricas de evaluación del modelo final muestran que la sensibilidad del modelo es baja (15.64%), mientras que la especificidad es alta (95.63%).
+
+## Discusión
+
+El análisis revela diferencias significativas en el uso del sistema de bicicletas compartidas por tipo de usuario, lo que sugiere oportunidades para adaptar las estrategias de marketing y operaciones. Por ejemplo, podrían ofrecerse promociones específicas a los usuarios casuales para animarles a utilizar el sistema durante las horas pico de los días laborables, cuando los miembros lo utilizan con más frecuencia.
+
+El modelo de regresión logística con regularización Ridge proporciona una precisión moderada en la predicción del tipo de usuario. Sin embargo, la baja sensibilidad indica que el modelo no es muy efectivo para identificar a los miembros. Se podrían explorar otras técnicas de modelado o incluir más variables en el modelo para mejorar su rendimiento.
+
+## Conclusión
+
+Este análisis muestra diferencias notables en el uso del sistema de bicicletas compartidas entre miembros y usuarios casuales. Estos hallazgos pueden ser útiles para informar estrategias de marketing y operaciones dirigidas a los diferentes segmentos de usuarios.
+
+La precisión del modelo de regresión logística con regularización Ridge es moderada, pero su sensibilidad es baja. Es posible que se requieran enfoques adicionales para mejorar la capacidad del modelo para identificar correctamente a los miembros. Se podrían explorar otras técnicas de modelado o incluir más variables en el modelo para mejorar su rendimiento.
+
+En general, este análisis proporciona información valiosa sobre el comportamiento de los usuarios del sistema de bicicletas compartidas y sugiere oportunidades para adaptar las estrategias de la empresa con el fin de satisfacer las necesidades de estos diferentes segmentos de usuarios. Se recomienda realizar investigaciones adicionales y explorar otras técnicas de modelado para mejorar aún más la comprensión del comportamiento del usuario y la precisión de la predicción del tipo de usuario.
